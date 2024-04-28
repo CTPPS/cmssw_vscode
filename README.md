@@ -3,9 +3,6 @@ Recipies to develop CMSSW using VSCode
 
 ## Indexing files
 Indexing files allows VSCode to easily resolve references to imported files. This provides:
-- errors and warnings detection
-
-    ![Errors and warnings detection](./static/errors_and_warnings.gif "Errors and warnings detection")
 - go to definition
 
     ![Go to definition](./static/go_to_def.gif "Go to definition")
@@ -13,6 +10,10 @@ Indexing files allows VSCode to easily resolve references to imported files. Thi
 - find references
 
     ![Find references](./static/find_references.gif "Find references")
+
+- errors and warnings detection
+
+    ![Errors and warnings detection](./static/errors_and_warnings.gif "Errors and warnings detection")
 
 More details and features in the [VSCode](https://code.visualstudio.com/docs/editor/editingevolved#_go-to-definition) and [clangd](https://clangd.llvm.org/features) documentations.
 
@@ -28,8 +29,10 @@ Indexing C++ files is based on the *clangd* extension alongside a *compile-comma
         2. Switch to *Remote [SSH: lxplus.cern.ch]*.
         3. In the search bar type **C_Cpp.intelliSenseEngine**.
         4. Switch to *disabled*.
-2. Initialize your CMSSW release environment: execute `cmsenv` in the *src* subdirectory of your CMSSW repo.
-3. Point clangd to the *compile_commands.json* file. A couple of options exist:
+2. Initialize your CMSSW release environment: execute `cmsenv` in the *src* subdirectory of your CMSSW repo. This will add two additional environment variables:
+    - `CMSSW_RELEASE_BASE`: path to the CMSSW repo on the CVMFS shared network file system.
+    - `CMSSW_BASE`: path to your locally cloned CMSSW repo.
+3. Point clangd to the *compile_commands.json* file. VSCode will look for it on the `CMSSW_BASE` path, regardless which subdirectory you open. A couple of options exist:
     - Add the directory with the file to the clangd settings:
         1. In VSCode press Ctrl + Shift + P, type **Preferences: Open Settings (UI)** and click Enter.
         2. Switch to *Remote [SSH: lxplus.cern.ch]*.
