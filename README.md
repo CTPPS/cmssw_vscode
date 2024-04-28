@@ -34,10 +34,15 @@ Indexing C++ files is based on the *clangd* extension alongside a *compile-comma
     - `CMSSW_BASE`: path to your locally cloned CMSSW repo.
 3. Point clangd to the *compile_commands.json* file. VSCode will look for it on the `CMSSW_BASE` path, regardless which subdirectory you open. A couple of options exist:
     - Add the directory with the file to the clangd settings:
-        1. In VSCode press Ctrl + Shift + P, type **Preferences: Open Settings (UI)** and click Enter.
-        2. Switch to *Remote [SSH: lxplus.cern.ch]*.
-        3. In the search bar type **clangd.arguments**.
-        4. Add a new argument: `--compile-commands-dir=${env:CMSSW_RELEASE_BASE}`.
+        1. In your terminal with the environment set up get the value of `CMSSW_RELEASE_BASE`:
+            ```
+            [tostafin@lxplus960 src]$ echo $CMSSW_RELEASE_BASE
+            /cvmfs/cms.cern.ch/el9_amd64_gcc12/cms/cmssw/CMSSW_14_0_6
+            ```
+        2. In VSCode press Ctrl + Shift + P, type **Preferences: Open Settings (UI)** and click Enter.
+        3. Switch to *Remote [SSH: lxplus.cern.ch]*.
+        4. In the search bar type **clangd.arguments**.
+        5. Add a new argument: `--compile-commands-dir=<value-of-CMSSW_RELEASE_BASE>`. For instance using the value above: `--compile-commands-dir=/cvmfs/cms.cern.ch/el9_amd64_gcc12/cms/cmssw/CMSSW_14_0_6`.
     - Create a symbolic link to the file: in your terminal with the environment set up execute `ln -s $CMSSW_RELEASE_BASE/compile_commands.json $CMSSW_BASE`.
     - Copy the file: in your terminal with the environment set up execute `cp $CMSSW_RELEASE_BASE/compile_commands.json $CMSSW_BASE`.
 4. Restart the clangd server. Press Ctrl + Shift + P, type **clangd: Restart language server** and click Enter.
