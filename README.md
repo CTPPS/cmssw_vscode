@@ -46,3 +46,16 @@ Indexing C++ files is based on the *clangd* extension alongside a *compile-comma
     - Create a symbolic link to the file: in your terminal with the environment set up execute `ln -s $CMSSW_RELEASE_BASE/compile_commands.json $CMSSW_BASE`.
     - Copy the file: in your terminal with the environment set up execute `cp $CMSSW_RELEASE_BASE/compile_commands.json $CMSSW_BASE`.
 4. Restart the clangd server. Press Ctrl + Shift + P, type **clangd: Restart language server** and click Enter.
+
+## ROOT files
+ROOT is a data analysis framework used for visualizing large amounts of data using histograms, scatter plots etc.
+
+### ROOT File Viewer
+These graphics can be viewed in VSCode using the *ROOT File Viewer* extension.
+![ROOT extension](./static/root_extension.gif "ROOT extension")
+1. Install ROOT File Viewer
+    1. In VSCode in the side bar go to *Extensions*.
+    2. In the search bar type **ROOT File Viewer**.
+    3. Click *Install*.
+2. Open a ROOT file by left-clicking on it in the *Explorer* tab.
+3. Select a graphic to display.
