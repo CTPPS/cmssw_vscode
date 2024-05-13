@@ -47,6 +47,8 @@ Indexing C++ files is based on the *clangd* extension alongside a *compile-comma
     - Copy the file: in your terminal with the environment set up execute `cp $CMSSW_RELEASE_BASE/compile_commands.json $CMSSW_BASE`.
 4. Restart the clangd server. Press Ctrl + Shift + P, type **clangd: Restart language server** and click Enter.
 
+**Note**: you don't have to wait for all files to be indexed to use clangd features.
+
 ## ROOT files
 ROOT is a data analysis framework used for visualizing large amounts of data using histograms, scatter plots etc.
 
