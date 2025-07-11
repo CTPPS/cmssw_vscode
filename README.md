@@ -1,6 +1,14 @@
 # cmssw_vscode
 Recipies to develop CMSSW using VSCode
 
+>  **Contents:**
+> - [Indexing files](#indexing-files): C++ source navigation and setup using `clangd`  
+> - [ROOT files](#root-files): View ROOT files directly in VSCode  
+> - [Fix VSCode SSH Connection Errors with AFS](#fix-vscode-ssh-connection-errors-with-afs): Avoid having to manually delete `.vscode-server` every time your connection drops
+
+> This AFS-related SSH bug tends to come back **periodically** — especially when your **internet connection is unstable or slow** — so it's **definitely worth applying the fix** described at the end.
+
+
 ## Indexing files
 Indexing files allows VSCode to easily resolve references to imported files. This provides:
 - go to definition
