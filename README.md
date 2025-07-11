@@ -80,7 +80,7 @@ If you connect to a remote machine using **AFS (Andrew File System)**, you might
     ```bash
    rm -r ~/.vscode-server
    ```
-3. **Create a symbolic link pointing from your AFS home firectory to the new folder.**
+3. **Create a symbolic link pointing from your AFS home directory to the new folder.**
     ```bash
     ln -s /eos/user/j/jkowal/vscode-server ~/.vscode-server
     ```
