@@ -1,6 +1,14 @@
 # cmssw_vscode
 Recipies to develop CMSSW using VSCode
 
+>  **Contents:**
+> - [Indexing files](#indexing-files): C++ source navigation and setup using `clangd`  
+> - [ROOT files](#root-files): View ROOT files directly in VSCode  
+> - [Fix VSCode SSH Connection Errors with AFS](#fix-vscode-ssh-connection-errors-with-afs): Avoid having to manually delete `.vscode-server` every time your connection drops
+
+> This AFS-related SSH bug tends to come back **periodically** — especially when your **internet connection is unstable or slow** — so it's **definitely worth applying the fix** described at the end.
+
+
 ## Indexing files
 Indexing files allows VSCode to easily resolve references to imported files. This provides:
 - go to definition
@@ -61,3 +69,28 @@ These graphics can be viewed in VSCode using the *ROOT File Viewer* extension.
     3. Click *Install*.
 2. Open a ROOT file by left-clicking on it in the *Explorer* tab.
 3. Select a graphic to display.
+
+---
+
+# Fix VSCode SSH Connection Errors with AFS
+
+If you connect to a remote machine using **AFS (Andrew File System)**, you might encounter a recurring bug that forces you to delete the `.vscode-server` folder from the remote every time you want to reconnect.
+
+## The Fix
+
+1. **Create a dedicated folder for VSCode server files in your EOS home directory.**
+
+   Suppose your username is `jkowal`, run the following command on the remote machine:
+
+   ```bash
+   mkdir -p /eos/user/j/jkowal/vscode-server
+   ```
+
+2. **Remove the existing `.vscode-server` from your AFS home directory.**
+    ```bash
+   rm -r ~/.vscode-server
+   ```
+3. **Create a symbolic link pointing from your AFS home directory to the new folder.**
+    ```bash
+    ln -s /eos/user/j/jkowal/vscode-server ~/.vscode-server
+    ```
